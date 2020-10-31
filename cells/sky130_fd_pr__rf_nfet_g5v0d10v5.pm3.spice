@@ -1,0 +1,63 @@
+* Copyright 2020 The SkyWater PDK Authors
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*     https://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+
+* SKY130 Spice File.
+.subckt  sky130_fd_pr__rf_nfet_g5v0d10v5_bM10W3p00L0p50 d g s b
++ 
+.param  mult = 1.0
+xsky130_fd_pr__rf_nfet_g5v0d10v5_bM10W3p00L0p50 d g s b sky130_fd_pr__rf_nfet_g5v0d10v5_bM10 w = 3.01u l = 0.50u m = 10 ad = 0.421p pd = 3.29u as = 0.51p ps = 3.948u nrd = 40.44 nrs = 33.70 mult = {10*mult}
+xsky130_fd_pr__rf_nfet_g5v0d10v5_bM10W3p00L0p50_dummy b b s b sky130_fd_pr__rf_nfet_g5v0d10v5_bM10 w = 3.01u l = 0.50u m = 2 ad = 0.903p pd = 6.62u as = 0.0 ps = 0.0 nrd = 20.22 nrs = 0.0 mult = {2*mult}
+.ends sky130_fd_pr__rf_nfet_g5v0d10v5_bM10W3p00L0p50
+.subckt  sky130_fd_pr__rf_nfet_g5v0d10v5_bM04W3p00L0p50 d g s b
++ 
+.param  mult = 1.0
+xsky130_fd_pr__rf_nfet_g5v0d10v5_bM04W3p00L0p50 d g s b sky130_fd_pr__rf_nfet_g5v0d10v5_bM04 w = 3.01u l = 0.50u m = 4 ad = 0.421p pd = 3.29u as = 0.63p ps = 4.935u nrd = 40.44 nrs = 26.96 mult = {4*mult}
+xsky130_fd_pr__rf_nfet_g5v0d10v5_bM04W3p00L0p50_dummy b b s b sky130_fd_pr__rf_nfet_g5v0d10v5_bM04 w = 3.01u l = 0.50u m = 2 ad = 0.903p pd = 6.62u as = 0.0 ps = 0.0 nrd = 20.22 nrs = 0.0 mult = {2*mult}
+.ends sky130_fd_pr__rf_nfet_g5v0d10v5_bM04W3p00L0p50
+.subckt  sky130_fd_pr__rf_nfet_g5v0d10v5_bM10W5p00L0p50 d g s b
++ 
+.param  mult = 1.0
+xsky130_fd_pr__rf_nfet_g5v0d10v5_bM10W5p00L0p50 d g s b sky130_fd_pr__rf_nfet_g5v0d10v5_bM10W5p00 l = 0.50u m = 10 ad = 0.707p pd = 5.33u as = 0.85p ps = 6.396u nrd = 24.27 nrs = 20.22 mult = {10*mult}
+xsky130_fd_pr__rf_nfet_g5v0d10v5_bM10W5p00L0p50_dummy b b s b sky130_fd_pr__rf_nfet_g5v0d10v5_bM10W5p00 l = 0.50u m = 2 ad = 1.515p pd = 10.7u as = 0.0 ps = 0.0 nrd = 12.13 nrs = 0.0 mult = {2*mult}
+.ends sky130_fd_pr__rf_nfet_g5v0d10v5_bM10W5p00L0p50
+.subckt  sky130_fd_pr__rf_nfet_g5v0d10v5_bM04W5p00L0p50 d g s b
++ 
+.param  mult = 1.0
+xsky130_fd_pr__rf_nfet_g5v0d10v5_bM04W5p00L0p50 d g s b sky130_fd_pr__rf_nfet_g5v0d10v5_bM04W5p00 l = 0.50u m = 4 ad = 0.707p pd = 5.33u as = 1.06p ps = 7.995u nrd = 24.267 nrs = 16.178 mult = {4*mult}
+xsky130_fd_pr__rf_nfet_g5v0d10v5_bM04W5p00L0p50_dummy b b s b sky130_fd_pr__rf_nfet_g5v0d10v5_bM04W5p00 l = 0.50u m = 2 ad = 1.515p pd = 10.7u as = 0.0 ps = 0.0 nrd = 12.13 nrs = 0.0 mult = {2*mult}
+.ends sky130_fd_pr__rf_nfet_g5v0d10v5_bM04W5p00L0p50
+.subckt  sky130_fd_pr__rf_nfet_g5v0d10v5_bM10W7p00L0p50 d g s b
++ 
+.param  mult = 1.0
+xsky130_fd_pr__rf_nfet_g5v0d10v5_bM10W7p00L0p50 d g s b sky130_fd_pr__rf_nfet_g5v0d10v5_bM10W7p00 l = 0.50u m = 10 ad = 0.993p pd = 7.37u as = 1.19p ps = 8.844u nrd = 17.33 nrs = 14.44 mult = {10*mult}
+xsky130_fd_pr__rf_nfet_g5v0d10v5_bM10W7p00L0p50_dummy b b s b sky130_fd_pr__rf_nfet_g5v0d10v5_bM10W7p00 l = 0.50u m = 2 ad = 2.127p pd = 14.78u as = 0.0 ps = 0.0 nrd = 8.67 nrs = 0.0 mult = {2*mult}
+.ends sky130_fd_pr__rf_nfet_g5v0d10v5_bM10W7p00L0p50
+.subckt  sky130_fd_pr__rf_nfet_g5v0d10v5_bM04W7p00L0p50 d g s b
++ 
+.param  mult = 1.0
+xsky130_fd_pr__rf_nfet_g5v0d10v5_bM04W7p00L0p50 d g s b sky130_fd_pr__rf_nfet_g5v0d10v5_bM04W7p00 l = 0.50u m = 4 ad = 0.993p pd = 7.37u as = 1.49p ps = 11.055u nrd = 17.33 nrs = 11.56 mult = {4*mult}
+xsky130_fd_pr__rf_nfet_g5v0d10v5_bM04W7p00L0p50_dummy b b s b sky130_fd_pr__rf_nfet_g5v0d10v5_bM04W7p00 l = 0.50u m = 2 ad = 2.127p pd = 14.78u as = 0.0 ps = 0.0 nrd = 8.67 nrs = 0.0 mult = {2*mult}
+.ends sky130_fd_pr__rf_nfet_g5v0d10v5_bM04W7p00L0p50
+.subckt  sky130_fd_pr__rf_nfet_g5v0d10v5_bM02W5p00L0p50 d g s b
++ 
+.param  mult = 1.0
+xsky130_fd_pr__rf_nfet_g5v0d10v5_bM02W5p00L0p50 d g s b sky130_fd_pr__rf_nfet_g5v0d10v5_bM02W5p00 l = 0.50u m = 2 ad = 0.707p pd = 5.33u as = 1.414p ps = 10.66u nrd = 24.267 nrs = 12.133 mult = {2*mult}
+xsky130_fd_pr__rf_nfet_g5v0d10v5_bM02W5p00L0p50_dummy b b s b sky130_fd_pr__rf_nfet_g5v0d10v5_bM02W5p00 l = 0.50u m = 2 ad = 1.515p pd = 10.7u as = 0.0 ps = 0.0 nrd = 12.13 nrs = 0.0 mult = {2*mult}
+.ends sky130_fd_pr__rf_nfet_g5v0d10v5_bM02W5p00L0p50
+.subckt  sky130_fd_pr__rf_nfet_g5v0d10v5_bM02W3p00L0p50 d g s b
++ 
+.param  mult = 1.0
+xsky130_fd_pr__rf_nfet_g5v0d10v5_bM02W3p00L0p50 d g s b sky130_fd_pr__rf_nfet_g5v0d10v5_bM02 w = 3.01u l = 0.50u m = 2 ad = 0.42p pd = 3.29 as = 0.84p ps = 6.58u nrd = 40.44 nrs = 20.22 mult = {2*mult}
+xsky130_fd_pr__rf_nfet_g5v0d10v5_bM02W3p00L0p50_dummy b b s b sky130_fd_pr__rf_nfet_g5v0d10v5_bM02 w = 3.01u l = 0.50u m = 2 ad = 0.903p pd = 6.62u as = 0.0 ps = 0.0 nrd = 20.22 nrs = 0.0 mult = {2*mult}
+.ends sky130_fd_pr__rf_nfet_g5v0d10v5_bM02W3p00L0p50
