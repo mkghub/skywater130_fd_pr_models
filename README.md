@@ -47,8 +47,10 @@ Processes for obtaining this files.
       This is only a temporary solution.
 
 - 'vt' variable is used as a parameter variable in one file. This has been modified to 'vt0'.
-  - paths into absolute paths
-  - In line comments character '$' changed to ';' to support both tools and hspice, etc.
+
+- paths into absolute paths
+
+- In line comments character '$' changed to ';' to support both tools and hspice, etc.
   
 - Diode model
   - Level = 3.0 model is not supported for Xyce. Temporal solution is changing to Level=2.0
