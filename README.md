@@ -46,7 +46,7 @@ Processes for obtaining this files.
   
       This is only a temporary solution.
 
-- 'vt' variable is used as a parameter variable in one file. This needs to be modified to 'vt0'.
+- 'vt' variable is used as a parameter variable in one file. This has been modified to 'vt0'.
   - paths into absolute paths
   - In line comments character '$' changed to ';' to support both tools and hspice, etc.
   
@@ -70,6 +70,7 @@ Maybe developers of Xyce can give hints for best solutions?
 'temp' variable cannot be used in the equations.
 A temporal solution is modifying 'temp' to 'temper' in the equations and defining 'temper' as a parameter on the input file. This method is OK for doing simulations on a fixed temperature but not OK for temperature sweep.
 voltage dependent resistor models
+
 Node voltages cannot be used in equations. In XDM manual, it is said that the solution for this problem is using behavioral current source models. For now I don't know how to incorporate both temperature dependence and voltage dependence. If we can neglect the voltage dependence of poly resistors it is OK.
 
 - Issue 2:  Diode model don't support level 3 model
