@@ -69,15 +69,17 @@ Maybe developers of Xyce can give hints for best solutions?
 
 'temp' variable cannot be used in the equations.
 A temporal solution is modifying 'temp' to 'temper' in the equations and defining 'temper' as a parameter on the input file. This method is OK for doing simulations on a fixed temperature but not OK for temperature sweep.
-voltage dependent resistor models
+
+
+- Issue2:   Voltage dependent resistor models
 
 Node voltages cannot be used in equations. In XDM manual, it is said that the solution for this problem is using behavioral current source models. For now I don't know how to incorporate both temperature dependence and voltage dependence. If we can neglect the voltage dependence of poly resistors it is OK.
 
-- Issue 2:  Diode model don't support level 3 model
+- Issue 3:  Diode model don't support level 3 model
 
 In diode model files, level = 3.0 is defined. For Xyce there's only level 1 and 2.
 
-- Issue 3:  Environment variable in include path statement
+- Issue 4:  Environment variable in include path statement
 
 For hspice and specter, an environment variable can be used in include path statements. For Xyce I don't know how to do it.
 For example
@@ -86,15 +88,15 @@ works for hspice and specter but Xyce refuses it.
 A temporary solution which I am using for now is defining symbolic link under the simulation directory such as 'sky130_fd_pr' and using it in the spice files.
 .include "sky130_fd_pr/models..."
 
-- Issue 4: 'vt' variable
+- Issue 5: 'vt' variable
 
 This is a trivial problem. In one file, 'vt' is used as a parameter variable. This needs to be modified to something like 'vt0'.
 
-- Issue 5: In line Comments
+- Issue 6: In line Comments
 
 Changing '$' to ';' is OK for ngspice, Xyce, and hspice, etc.
 
-- Issue 6: Model Binning
+- Issue 7: Model Binning
 
 This is not an issue but can be an obstacle for a beginner.
 The following statement is needed in the input file for using binning models.
