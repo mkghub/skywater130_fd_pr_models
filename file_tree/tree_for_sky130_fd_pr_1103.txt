@@ -1,3 +1,10 @@
+[INFO] scanning files...
+level =  2
+Remaing files =  603
+level =  3
+Remaing files =  477
+level =  4
+Remaing files =  0
 sky130.lib.spice
 戍式式 sky130_fd_pr_models/cells/sky130_fd_pr__nfet_01v8__tt.corner.spice
 戍式式 sky130_fd_pr_models/cells/sky130_fd_pr__nfet_01v8_lvt__tt.corner.spice
@@ -1340,4 +1347,5 @@ sky130.lib.spice
     弛   戍式式 sky130_fd_pr_models/cells/sky130_fd_pr__pfet_01v8_mvt.pm3.spice
     弛   戌式式 sky130_fd_pr_models/cells/sky130_fd_pr__pfet_01v8_mvt.pm3.spice
     戌式式 sky130_fd_pr_models/cells/sky130_fd_pr__rf_pfet_01v8_mvt__mismatch.corner.spice
-
+No more files!
+[INFO] process completed...
