@@ -17,4 +17,4 @@
 .param
 + sky130_fd_pr__pfet_g5v0d10v5__ajunction_mult = 9.5405e-1
 + sky130_fd_pr__pfet_g5v0d10v5__pjunction_mult = 9.6374e-1
-.include "sky130_fd_pr_models/cells_all/sky130_fd_pr__pfet_g5v0d10v5__ff.pm3.spice"
+.include "sky130_fd_pr_models/cells/sky130_fd_pr__pfet_g5v0d10v5__ff.pm3.spice"
