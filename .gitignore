@@ -21,3 +21,14 @@ $RECYCLE.BIN/
 # =========================
 # Operating System Files
 # =========================
+sonos/begin_of_life.spice
+sonos/begin_of_life/typical.spice
+sonos/begin_of_life/worst.spice
+sonos/end_of_life/ff.spice
+sonos/end_of_life/ss.spice
+sonos/end_of_life/tt.spice
+sonos/end_of_life/typical/ff.spice
+sonos/end_of_life/typical/ss.spice
+sonos/end_of_life/typical/tt.spice
+sonos_e/begin_of_life.bins.csv
+sonos_e/begin_of_life.pm3.spice
