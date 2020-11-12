@@ -1472,4 +1472,4 @@
 + sky130_fd_pr__nfet_01v8__ub_diff_62 = -2.642e-19
 + sky130_fd_pr__nfet_01v8__eta0_diff_62 = 0.0
 *.include "sky130_fd_pr_models/cells/sky130_fd_pr__nfet_01v8.pm3.spice"
-.include "sky130_fd_pr_models/cells/sky130_fd_pr__nfet_01v8_fs.pm3.spice"
+.include "sky130_fd_pr_models/cells/sky130_fd_pr__nfet_01v8__fs.pm3.spice"
