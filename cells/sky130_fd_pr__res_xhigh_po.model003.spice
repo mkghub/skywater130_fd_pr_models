@@ -1,0 +1,88 @@
+* Copyright 2020 The SkyWater PDK Authors
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*     https://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+
+* SKY130 Spice File.
+* statistics {
+*   mismatch {
+*       }
+*         process {
+*     vary sky130_fd_pr__res_xhigh_po__var_mult dist=gauss std=0.025
+*     vary sky130_fd_pr__res_high_po__var       dist=gauss std=0.025
+*         }
+* }
+.subckt  sky130_fd_pr__res_xhigh_po r0 r1 sub
+.param w=1u l=1u mult=1
++ rsheet = 2000.0
+**+ rend_mm = {0.0472/sqrt(w)}                   ; _option_scale_
+*+ rend_mm = {0.0472/sqrt(w*1e6)}
+*+ leff = {l-0.0592}                            ; _option_scale_
++ leff = {l-0.0592e-6}
+*+ weff = {w-0.056}                             ; _option_scale_
++ weff = {w-0.056e-6}
+* ;  Resistor voltco fitting parameters
+*+ bp2 = -0.1228
+*+ bq2 = 1.304
+*+ bp22 = -0.2874
+*+ bp23 = 0.5252
+* ;  Substrate voltco fitting parameters
+*+ sub1 = 1.2
+*+ sub2 = 41.26e-3
+*+ sub3 = 8.697e-3
+*+ sub4 = 24.0
+*+ sub5 = 39.86
+*+ body_pelgrom = 0.0347
+**+ res_match = {(body_pelgrom/sqrt(w*l*mult))*sky130_fd_pr__res_high_po__slope_spectre}
+*+ res_match = {(body_pelgrom/sqrt(w*l*1e12*mult))*sky130_fd_pr__res_high_po__slope_spectre}             ; _option_scale_:wq
+*+ rhead0 = {188.2/(weff-0.0672*max(0.69-w,0)+1.41)}                                                     ; _option_scale_
++ rhead0 = { 188.2e-6 / ( weff - 0.0672 * max(0.69e-6 - w, 0) + 1.41e-6) }
+*+ rbody0 = {rsheet*leff/(weff-0.0672*max(0.69-w,0))}                                                    ; _option_scale_
++ rbody0 = { rsheet * leff / (weff - 0.0672 * max(0.69e-6 - w, 0)) }
+*+ rhead = {rhead0*(1+sky130_fd_pr__res_xhigh_po__var_mult)*(1+rend_mm/sqrt(mult)*sky130_fd_pr__res_high_po__con_slope_spectre)}
+*+ rbody = {rbody0*(1+sky130_fd_pr__res_xhigh_po__var_mult)*(1+res_match)}
++ rhead = {rhead0}
++ rbody = {rbody0}
+**+ Efac = {1/leff*(1+bp22/w+bp23*min(0.2,leff-0.5)*log(leff/w))}                                         ; _option_scale_
+*+ Efac = { 1e-6 / leff * (1 + bp22 * 1e-6/w + bp23 * 1e6 * min(0.2e-6, leff-0.5e-6) * log(leff/w) ) }
++ vcoef_b = 1.0
+*+ vcoef_b = { (1-bp2+bp2*sqrt(1+(bq2*abs(v(r0,r1))*Efac)**2))*
+*+ (sub1+sub2*tanh(sub3*(min(v(r0,sub)+v(r1,sub),sub4)+sub5))) / (sub1+sub2*tanh(sub3*sub5)) }
+*+ tcoef_b = 1.0
+*+ tc1_b = -1.47e-3 ; tc2_b = 2.7e-6 tnom = 25.0
+*+ tcoef_b = { 1.0 + tc1_b *(temper-25.0)+tc2_b*pow((temper-25.0),2) }
++ tc1_b = { -1.47e-3 - 5e-7 * sky130_fd_pr__res_xhigh_po__var_mult * rsheet }
+rend1 r0 t1 reshead r = {rhead} tc1 = -4.3e-4 tc2 = -1.3e-5
+rend2 t2 r1 reshead r = {rhead} tc1 = -4.3e-4 tc2 = -1.3e-5
+rbody1 t1 t2 resbody r = {rbody * vcoef_b} tc1 = -1.47e-3 tc2 = 2.7e-6
+*rbody1 t1 t2 r = {rbody * vcoef_b * tcoef_b}
+c0 r0 sub  c = {((l+2*2.08e-6)*w*crpf_precision+2*((l+2*2.08e-6)+w)*crpfsw_precision_1_1)/2}
+c1 r1 sub  c = {((l+2*2.08e-6)*w*crpf_precision+2*((l+2*2.08e-6)+w)*crpfsw_precision_1_1)/2}
+*+ temp = {temper}
+*+ tc1_h = -4.3e-4 tc2_h = -1.3e-5
+*+ tcoef_h = { 1.0 + tc1_h * (temp-25.0) + tc2_h * pow((temp-25.0),2) }
+*+ tc1_b = -1.47e-3 tc2_b = 2.7e-6 tnom = 25.0
+*+ tcoef_b = { 1.0 + tc1_b *(temp-25.0)+tc2_b*pow((temp-25.0),2) }
+*+ vcoef_b = { (1-bp2+bp2*sqrt(1+(bq2*abs(v(r0,r1))*Efac)**2))*
+*+ (sub1+sub2*tanh(sub3*(min(v(r0,sub)+v(r1,sub),sub4)+sub5))) / (sub1+sub2*tanh(sub3*sub5)) }
+*rend1 r0 t1 r = {rhead * tcoef_h}
+*rend2 t2 r1 r = {rhead * tcoef_h}
+*rbody t1 t2 resbody r = {rbody*(1-bp2+bp2*sqrt(1+(bq2*abs(v(t1,t2))*Efac)**2))*
+*+ (sub1+sub2*tanh(sub3*(min(v(r0,sub)+v(r1,sub),sub4)+sub5))) / (sub1+sub2*tanh(sub3*sub5)) }
+*rbody t1 t2 r = {rbody * vcoef_b * tcoef_b }
+*xc0 r0 r1 sub sky130_fd_pr__model__parasitic__res_po w = {w} l = {l}
+*rbody t1 t2 resbody r = {rbody}
+.model resbody r tc1 = {-1.47e-3 - 5e-7*sky130_fd_pr__res_xhigh_po__var_mult*rsheet} tc2 = 2.7e-6 ; tnom = 25.0
+*.model resbody r tc1 = {tc1_b} tc2 = 2.7e-6 tnom = 25.0
+*.model resbody r tc1 = -1.47e-3 tc2 = 2.7e-6 tnom = 25.0
+.model reshead r tc1 = -4.3e-4 tc2 = -1.3e-5 ; tnom = 25.0
+.ends sky130_fd_pr__res_xhigh_po

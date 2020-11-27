@@ -23,7 +23,11 @@
 + ut = 7.238e-6
 *rpwres r0 r1
 *+ r = rspwres*((l+dl)/w)*(1-av*(max(v(r0),v(r1))-min(v(r0),v(r1))))*(1+bv*(v(b)-min(v(r0),v(r1))))*(1+vt*(temp-tref)+ut*(temp-tref)*(temp-tref))
-* voltage dependence cannot be run by Xyce,  temp dependece by a model
+*+ r = rspwres*((l+dl)/w)*(1-av*(max(v(r0),v(r1))-min(v(r0),v(r1)))))    ; voltage dependence cannot be run by Xyce,  temp dependece by a model
 rpwres r0 r1 r_iso_pw l={l+dl} w={w}
+*rpwres r0 r1 r_iso_pw r = { rspwres*((l+dl)/w) } tc1 = {vt0} tc2 = {ut}
+*rpwres r0 r1 r = { rspwres*((l+dl)/w) } tc1 = {vt0} tc2 = {ut}
+*rpwres r0 r1 r = { rspwres * (l+dl)/w }
+*.model r_iso_pw r tc1 = {vt0} tc2 = {ut} tnom = 30.0
 .model r_iso_pw r rsh={rspwres} tc1 = {vt0} tc2 = {ut} tnom = {tref}
 .ends sky130_fd_pr__res_iso_pw
