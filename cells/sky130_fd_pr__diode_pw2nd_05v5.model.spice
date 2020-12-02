@@ -18,7 +18,7 @@
 + level = 2.0
 *+ tlevc = 1.0
 **+ area = 1.0e+12              ; _option_scale_
-*+ area = 1.0                      
++ area = 1.0                      
 * Junction Capacitance Parameters
 + cj = {0.0013459*1e-12*sky130_fd_pr__nfet_01v8__ajunction_mult} ; Units: farad/meter^2
 *+ mj = 0.44

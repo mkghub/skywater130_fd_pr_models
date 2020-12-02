@@ -41,19 +41,19 @@ rhead r0 rb rhead_model w = {weff+0.1558e-6} l = 1.0e-6 ; rsh = {1.0 * rsh_h}
 rbody rb r1 rbody_model w = {weff} l = {leff} ; rsh = {1.0 * rsh_b}
 c0 r0 b  c = {((l + 2*2.08e-6) * w * crpf_precision + 2 *((l + 2*2.08e-6) + w) * crpfsw_precision_1_1)/2}
 c1 r1 b  c = {((l + 2*2.08e-6) * w * crpf_precision + 2 *((l + 2*2.08e-6) + w) * crpfsw_precision_1_1)/2}
-.model rhead_model r sw_et=0 isnoisy=0
+.model rhead_model r tnom = 30.0
 *+ rsh = 345.8312 
 + rsh = {345.8312 * (1+sky130_fd_pr__res_high_po__var) * (1+rend_match)}
-+ tc1 = -4.3e-4 tc2 = 12e-6 tnom = 30.0
-.model rbody_model r sw_et=0 isnoisy=0
++ tc1 = -4.3e-4 tc2 = 12e-6 
+.model rbody_model r tnom = 30.0
 *+ rsh = 317.3885 
 + rsh = {rsheet * (1+sky130_fd_pr__res_high_po__var) * (1+res_match)}
-+ tc1 = {tc1rpolybody} tc2 = {tc2rpolybody} tnom = 30.0
++ tc1 = {tc1rpolybody} tc2 = {tc2rpolybody} 
 **+ res_match = {(body_pelgrom/sqrt(w*l*mult))*sky130_fd_pr__res_high_po__slope_spectre}                 ; _option_scale_
 **+ rbody_match = {body_pelgrom/sqrt(w*l*mult)*sky130_fd_pr__res_high_po__slope_spectre}        ; _option_scale_
 **+ rend_match = {head_pelgrom/sqrt((w+0.525)*num_con_row*mult)*sky130_fd_pr__res_high_po__con_slope_spectre}         ; _option_scale_
 *xc0 r0 r1 b sky130_fd_pr__model__parasitic__res_po w = {w} l = {l}
-*.model rhead_model r sw_et=0 isnoisy=0
+*.model rhead_model tnom = 30.0
 *+ rsh = {345.8312*(1+sky130_fd_pr__res_high_po__var)*(1+rend_match)}
 **+ p2 = {-80.87e-3/cosh(6.34e-3*weff*weff)*(1-exp(-1.554/leff))}                ; _option_scale_
 *+ p2 = {-80.87e-3/cosh(6.34e-3*weff*weff*1e12)*(1-exp(-1.554e-6/leff))}
